@@ -1,9 +1,12 @@
-from django.contrib.auth import get_user_model
 from django.contrib.auth.models import Group
 from django.http import HttpResponse
 from django.shortcuts import render
+from rest_framework.permissions import IsAuthenticated
+from rest_framework.response import Response
+from rest_framework.views import APIView
 
-User = get_user_model()
+from .models import User
+from .permissions import IsDoctor
 
 
 def create_user(request):
@@ -25,7 +28,7 @@ def create_user(request):
 
 
 class DoctorDashboardView(APIView):
-    permission_classes = [IsAuthenticated, IsDcotor]
+    permission_classes = [IsAuthenticated, IsDoctor]
 
     def get(self, request):
-        return Reponse({"message": "Welcome Doctor"})
+        return Response({"message": "Welcome Doctor"})

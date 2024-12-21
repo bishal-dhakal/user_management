@@ -1,6 +1,6 @@
-ADMIN = 1
-DOCTOR = 2
-NURSE = 3
+ADMIN = "admin"
+DOCTOR = "doctor"
+NURSE = "nurse"
 
 ROLE_CHOICES = (
     (DOCTOR, "Doctor"),
